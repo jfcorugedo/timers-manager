@@ -2,31 +2,3 @@
   text-align: center;
   padding: 2rem;
 }
-
-.timer-adder form {
-  display: flex;
-}
-
-.timer-adder form > *{
-  margin-left: 1rem;
-}
-
-input {
-  flex: 2 1 0;
-  padding: 2rem;
-  font-size: 1rem;
-}
-
-button {
-  flex: 1 1 0;
-  padding: 2rem;
-  font-size: 1rem;
-  color: white;
-  background-color: #3498db;
-  border-style: none;
-  font-weight: bold;
-}
-
-button:disabled {
-  background-color: #95a5a6;
-}

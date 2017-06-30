@@ -1,0 +1,27 @@
+.timer-adder form {
+  display: flex;
+}
+
+.timer-adder form > *{
+  margin-left: 1rem;
+}
+
+.timer-adder input {
+  flex: 2 1 0;
+  padding: 2rem;
+  font-size: 1rem;
+}
+
+.timer-adder button {
+  flex: 1 1 0;
+  padding: 2rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #3498db;
+  border-style: none;
+  font-weight: bold;
+}
+
+.timer-adder button:disabled {
+  background-color: #95a5a6;
+}

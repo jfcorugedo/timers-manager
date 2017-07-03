@@ -1,0 +1,12 @@
+.timer-list {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.timer-list > * {
+  margin-left: 1rem;
+}
+
+.timer-list > *:first-child {
+  margin-left: 0;
+}

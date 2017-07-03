@@ -1,24 +1,26 @@
 import React, {Component} from 'react';
 import TimerAdder from './timer-adder';
+import TimerList from './timer-list';
 import './index.css';
 
 class App extends Component {
 
     constructor() {
         super();
-        this.state = { timerName:'', timerTime: 0 };
+        this.state = {timerName: '', timerTime: 0, timers: []};
     }
 
     updateTimerName(name) {
-        this.setState({ timerName: name });
+        this.setState({timerName: name});
     }
 
     updateTimerTime(time) {
-        this.setState({ timerTime: time });
+        this.setState({timerTime: time});
     }
 
     createTimer(event) {
-        alert(this.state.timerName + ' ' + this.state.timerTime);
+        this.state.timers.push({ name: this.state.timerName, time:this.state.timerTime });
+        this.setState({timers: this.state.timers});
         event.preventDefault();
     }
 
@@ -27,11 +29,12 @@ class App extends Component {
             <TimerAdder
                 onNameChange={ (name) => this.updateTimerName(name) }
                 onTimeChange={ (time) => this.updateTimerTime(time) }
-                createTimer={ (event) => this.createTimer(event) } />
+                createTimer={ (event) => this.createTimer(event) }/>
+
+            <TimerList timers={this.state.timers}/>
         </div>);
     }
-}
-;
+};
 
 
 export default App;

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './index.css';
 
 const TimerAdder = ({onNameChange, onTimeChange, createTimer}) => {
@@ -7,7 +7,7 @@ const TimerAdder = ({onNameChange, onTimeChange, createTimer}) => {
         <div className="timer-adder">
             <form onSubmit={(event) => createTimer(event)}>
                 <input type="text" name="timerName" placeholder="timer name"
-                       onChange={ (event) => onNameChange(event.target.name) }/>
+                       onChange={ (event) => onNameChange(event.target.value) }/>
                 <input type="text" name="" placeholder="time in seconds"
                        onChange={ (event) => onTimeChange(event.target.value) }/>
                 <button type="submit">Create</button>

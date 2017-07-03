@@ -33,7 +33,7 @@ class Timer extends Component {
         const {name, time, finished} = this.state;
 
         return (
-            <div className={classNames("timer", finished) }>
+            <div className={classNames("timer", { finished }) }>
                 <h2 className="name">{ name }</h2>
                 <div className="time">{ numeral(time).format('00:00:00') }</div>
             </div>

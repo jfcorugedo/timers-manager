@@ -41,7 +41,7 @@ class App extends Component {
                 deleteTimer={ this.deleteTimer.bind(this) } />
         </div>);
     }
-};
+}
 
 
 export default App;

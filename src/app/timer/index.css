@@ -17,3 +17,12 @@
 .timer .time {
   font-size: 5rem;
 }
+
+.timer .actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timer .actions > div {
+  cursor: pointer;
+}

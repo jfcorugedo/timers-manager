@@ -8,7 +8,7 @@ class Timer extends Component {
     constructor(props) {
         super(props);
         const {name, time} = props;
-        this.state = {name, time, finished: false}
+        this.state = {name, time, finished: false, running: false}
     }
 
     componentDidMount() {
@@ -17,6 +17,7 @@ class Timer extends Component {
 
     next() {
         this.timer = setTimeout(() => this.tick(), 1000);
+        this.setState({running: true});
     }
 
     tick() {
@@ -30,7 +31,20 @@ class Timer extends Component {
     }
 
     componentWillUnmount() {
+        this.clearTimer();
+    }
+
+    clearTimer() {
         clearTimeout(this.timer);
+    }
+
+    pause(){
+        this.setState({running: false});
+        this.clearTimer();
+    }
+
+    resume() {
+        this.next();
     }
 
     render() {
@@ -40,7 +54,14 @@ class Timer extends Component {
             <div className={classNames("timer", { finished }) }>
                 <h2 className="name">{ name }</h2>
                 <div className="time">{ numeral(time).format('00:00:00') }</div>
-                <div onClick={ this.props.deleteTimer }>delete</div>
+                <div className="actions">
+                    <div onClick={ this.props.deleteTimer }>delete</div>
+                    {this.state.running ?
+                        <div onClick={ () => this.pause() }>pause</div>
+                        :
+                        <div onClick={ () => this.resume() }>resume</div>
+                    }
+                </div>
             </div>
         );
     }

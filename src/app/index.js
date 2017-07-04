@@ -7,7 +7,7 @@ class App extends Component {
 
     constructor() {
         super();
-        this.state = {timerName: '', timerTime: 0, timers: []};
+        this.state = {timerName: '', timerTime: 0, nextId: 0, timers: []};
     }
 
     updateTimerName(name) {
@@ -19,19 +19,26 @@ class App extends Component {
     }
 
     createTimer(event) {
-        this.state.timers.push({ name: this.state.timerName, time:this.state.timerTime });
+        this.state.timers.push({ id: this.state.nextId++, name: this.state.timerName, time:this.state.timerTime });
         this.setState({timers: this.state.timers});
         event.preventDefault();
     }
+
+    deleteTimer(key) {
+        this.setState({timers: this.state.timers.filter(({id}) => id !== key )});
+    }
+
 
     render() {
         return (<div className="app">
             <TimerAdder
                 onNameChange={ (name) => this.updateTimerName(name) }
                 onTimeChange={ (time) => this.updateTimerTime(time) }
-                createTimer={ (event) => this.createTimer(event) }/>
+                createTimer={ (event) => this.createTimer(event) } />
 
-            <TimerList timers={this.state.timers}/>
+            <TimerList
+                timers={this.state.timers}
+                deleteTimer={ this.deleteTimer.bind(this) } />
         </div>);
     }
 };

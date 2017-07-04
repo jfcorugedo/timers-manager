@@ -16,7 +16,7 @@ class Timer extends Component {
     }
 
     next() {
-        setTimeout(() => this.tick(), 1000);
+        this.timer = setTimeout(() => this.tick(), 1000);
     }
 
     tick() {
@@ -29,6 +29,10 @@ class Timer extends Component {
         }
     }
 
+    componentWillUnmount() {
+        clearTimeout(this.timer);
+    }
+
     render() {
         const {name, time, finished} = this.state;
 
@@ -36,6 +40,7 @@ class Timer extends Component {
             <div className={classNames("timer", { finished }) }>
                 <h2 className="name">{ name }</h2>
                 <div className="time">{ numeral(time).format('00:00:00') }</div>
+                <div onClick={ this.props.deleteTimer }>delete</div>
             </div>
         );
     }

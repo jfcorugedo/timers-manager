@@ -19,7 +19,7 @@ class App extends Component {
     }
 
     createTimer(event) {
-        this.state.timers.push({ id: this.state.nextId++, name: this.state.timerName, time:this.state.timerTime });
+        this.state.timers.unshift({ id: this.state.nextId++, name: this.state.timerName, time:this.state.timerTime });
         this.setState({timers: this.state.timers});
         event.preventDefault();
     }

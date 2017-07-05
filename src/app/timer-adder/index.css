@@ -12,8 +12,8 @@
 
 .timer-adder input {
     flex: 2 1 0;
-    padding: 2rem;
-    font-size: 1rem;
+    padding: 1rem;
+    font-size: 1.2rem;
 }
 
 .timer-adder button {

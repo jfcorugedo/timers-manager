@@ -1,10 +1,11 @@
 .timer-list {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 1rem;
 }
 
 .timer-list > * {
-  margin-left: 1rem;
+  margin: 1rem 1rem 0 0;
 }
 
 .timer-list > *:first-child {

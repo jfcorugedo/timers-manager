@@ -1,13 +1,10 @@
 .timer-adder form {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .timer-adder form > * {
-    margin-left: 1rem;
-}
-
-.timer-adder form > *:first-child {
-    margin-left: 0;
+    margin: 1rem 1rem 1rem 0;
 }
 
 .timer-adder input {
